@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Podcast CLML Poker — Bien jouer le préflop en micro limites (NL2 à NL50)</title>
+  <meta name="description" content="Les fondamentaux du jeu préflop en micro limites (NL2 à NL50) : ranges d’open, tailles de relance, 3-bet, erreurs courantes et adaptations exploitantes. Écoute le podcast et lis le guide complet." />
+  <meta name="author" content="CLML POKER" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Podcast CLML Poker — Bien jouer le préflop en micro limites" />
+  <meta property="og:description" content="Position, ranges, 3-bet, iso-raise, erreurs à éviter : la base pour crush les micro limites en cash game. + podcast audio." />
+  <meta property="og:site_name" content="CLML POKER" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --surface:#151518;
+      --muted:#9aa0ad;
+      --text:#f7f9ff;
+      --accent:#bd2a2a;      /* Rouge CLML */
+      --accent-2:#d8b21f;    /* Or CLML   */
+      --border:#262633;
+      --code:#1c1c25;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Roboto,system-ui,-apple-system,Segoe UI,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:auto;padding:32px 20px}
+    header.article-header{margin-bottom:28px}
+    .eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    h1{font-family:"Cinzel",Georgia,serif;font-weight:700;font-size:clamp(1.9rem,2.7vw,2.7rem);line-height:1.2;margin:.3rem 0 0}
+    .meta{margin-top:10px;color:var(--muted);font-size:.95rem}
+    .player{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;margin:24px 0;display:grid;gap:12px}
+    .player-head{display:flex;align-items:center;gap:12px}
+    .round{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,rgba(216,178,31,.15),rgba(189,42,42,.25));border:1px solid var(--border);font-weight:800}
+    .controls{display:grid;gap:8px}
+    .cta-line{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{background:var(--accent);color:white;border:none;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;margin:24px 0}
+    .toc h2{margin:0 0 8px 0;font-size:1.05rem}
+    .toc ol{margin:0;padding-left:18px}
+    h2{margin-top:34px;font-size:1.4rem;font-family:"Cinzel",Georgia,serif}
+    h3{margin-top:22px;font-size:1.15rem}
+    .callout{border:1px solid var(--border);background:linear-gradient(180deg,rgba(189,42,42,.08),rgba(189,42,42,0));border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;margin:16px 0}
+    .tip{border-left-color:var(--accent-2);background:linear-gradient(180deg,rgba(216,178,31,.10),rgba(216,178,31,0))}
+    .kbd{background:var(--code);padding:1px 6px;border-radius:6px;border:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em}
+    ul,ol{padding-left:20px}
+    li+li{margin-top:.25rem}
+    blockquote{margin:18px 0;padding:12px 16px;border-left:4px solid var(--accent-2);background:var(--surface);border-radius:10px;color:var(--text)}
+    .grid{display:grid;gap:16px}
+    @media (min-width:960px){.grid-2{grid-template-columns:1.2fr .8fr}}
+    aside.sidebar{position:sticky;top:18px;height:max-content}
+    .badge{display:inline-block;background:rgba(189,42,42,.15);color:#ffe5e5;border:1px solid var(--border);padding:2px 8px;border-radius:999px;font-size:.78rem;margin-left:6px}
+    .footer-note{margin-top:36px;color:var(--muted);font-size:.95rem}
+    .hr{height:1px;background:var(--border);border:0;margin:28px 0}
+    .checklist li{list-style:"✅ ";padding-left:.4ch}
+    .no{list-style:"❌ ";padding-left:.4ch}
+    .yes{list-style:"✔️ ";padding-left:.4ch}
+    code{background:var(--code);padding:2px 6px;border-radius:6px;border:1px solid var(--border)}
+    .tag{display:inline-block;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 10px;font-size:.82rem;color:var(--muted);margin-right:6px}
+  </style>
+
+  <!-- Données structurées (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Bien jouer le préflop en micro limites",
+    "description":"Bases, ranges et adaptations pour réussir le préflop en NL2–NL50.",
+    "about":["poker","cash game","micro limites","préflop"],
+    "author":{"@type":"Organization","name":"CLML POKER"},
+    "publisher":{"@type":"Organization","name":"CLML POKER"},
+    "inLanguage":"fr-FR",
+    "associatedMedia": {
+      "@type": "AudioObject",
+      "name": "Podcast CLML Poker — Bien jouer le préflop en micro limites",
+      "encodingFormat": "audio/mpeg",
+      "contentUrl": "https://drive.google.com/file/d/1hRJ2pEO6GLePHSOaWig-tj0x-ee_DyR5/view?usp=drive_link"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="container">
+    <header class="article-header">
+      <div class="eyebrow">🎧 Podcast CLML Poker</div>
+      <h1>Bien jouer le préflop en micro limites (NL2 à NL50) <span class="badge">Guides &amp; Stratégie</span></h1>
+      <p class="meta">Durée de lecture&nbsp;: ~8&nbsp;min · Niveau&nbsp;: Débutant&nbsp;→&nbsp;Intermédiaire</p>
+
+      <!-- LECTEUR PODCAST — version simplifiée (sans <audio>) -->
+      <section class="player" aria-label="Lecteur du podcast">
+        <div class="player-head">
+          <div class="round">▶</div>
+          <div>
+            <strong>Épisode&nbsp;: Bien jouer le préflop</strong><br />
+            <small>Écoute l’épisode ou lis le guide complet ci-dessous.</small>
+          </div>
+        </div>
+        <div class="controls">
+          <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#000;">
+            <iframe
+              src="https://drive.google.com/file/d/1hRJ2pEO6GLePHSOaWig-tj0x-ee_DyR5/preview"
+              width="100%" height="80" allow="autoplay"
+              title="Podcast CLML Poker — Bien jouer le préflop"
+              style="border:0;">
+            </iframe>
+          </div>
+          <div class="cta-line">
+            <a class="btn" href="https://drive.google.com/file/d/1hRJ2pEO6GLePHSOaWig-tj0x-ee_DyR5/view?usp=drive_link" target="_blank" rel="noopener">🎧 Écouter sur Google Drive</a>
+            <a class="btn ghost" href="https://drive.google.com/uc?export=download&id=1hRJ2pEO6GLePHSOaWig-tj0x-ee_DyR5">⬇️ Télécharger l’épisode (MP3)</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="grid grid-2">
+      <article>
+        <section id="intro">
+          <p>Bienvenue à tous les grinders de micro limites&nbsp;! Aujourd’hui on s’attaque à un thème fondamental, parfois sous-estimé&nbsp;: <strong>le jeu préflop</strong>. C’est peut-être moins “sexy” que les bluffs river, mais si tu veux battre la NL2 à la NL50 avec régularité, <strong>maîtriser le préflop est non-négociable</strong>.</p>
+          <p>On va poser des bases claires, repérer les erreurs fréquentes et construire un <em>plan de jeu</em> préflop solide, directement applicable à tes tables.</p>
+        </section>
+
+        <nav class="toc" aria-label="Sommaire">
+          <h2>Sommaire</h2>
+          <ol>
+            <li><a href="#partie1">Les fondamentaux du préflop</a></li>
+            <li><a href="#partie2">Erreurs les plus courantes</a></li>
+            <li><a href="#partie3">Ranges solides &amp; exploitantes</a></li>
+            <li><a href="#partie4">S’adapter à la table</a></li>
+            <li><a href="#conclusion">Conclusion &amp; exercice</a></li>
+          </ol>
+        </nav>
+
+        <section id="partie1">
+          <h2>♦️ Partie 1&nbsp;: Les fondamentaux du jeu préflop</h2>
+
+          <h3>1) La position&nbsp;: ta meilleure alliée</h3>
+          <p>Jouer en position (BTN, CO, HJ) te permet de contrôler la taille du pot, d’observer avant d’agir et d’exercer une pression plus efficace postflop.</p>
+          <div class="callout tip"><strong>Règle d’or</strong>&nbsp;: plus tu es en position, plus tu peux ouvrir de mains. Moins tu es en position, plus ta range doit être serrée.</div>
+
+          <h3>2) Construire des ranges gagnantes (TAG)</h3>
+          <p>Un style <strong>tight-agressif</strong> fonctionne très bien en micro limites&nbsp;: les adversaires commettent de grosses erreurs face à des ranges fortes et s’adaptent peu.</p>
+          <blockquote>
+            <strong>Repère pratique</strong> — UTG très serré (66+, AJo+, KQo, ATs+, KJs+), et élargis progressivement jusqu’à ~45&nbsp;% au bouton.
+          </blockquote>
+
+          <h3>3) Tailles de relance standards</h3>
+          <ul>
+            <li>Open raise&nbsp;: <span class="kbd">2.5x</span> UTG/MP · <span class="kbd">2.5x</span> CO/BTN · <span class="kbd">3x</span> SB</li>
+            <li>Contre limpers&nbsp;: <strong>ISO</strong> à <span class="kbd">4x + 1BB</span> par limper, surtout IP</li>
+          </ul>
+
+          <h3>4) Ne limp pas (sauf exception)</h3>
+          <p>Le limp t’emmène trop souvent dans des pots multiway sans initiative.</p>
+          <ul class="yes">
+            <li>Exception utile&nbsp;: compléter en SB avec <em>paires servies</em> contre un fish passif en BB si tu as un bon edge postflop.</li>
+          </ul>
+        </section>
+
+        <section id="partie2">
+          <h2>♦️ Partie 2&nbsp;: Les erreurs les plus courantes</h2>
+          <ul>
+            <li><strong>Hors de position trop loose</strong>&nbsp;: éviter les calls marginaux OOP (ex.&nbsp;: 76s vs open UTG).</li>
+            <li><strong>Open trop loose en early</strong>&nbsp;: QJo, A9o UTG → souvent EV-.</li>
+            <li><strong>Call passifs en SB/BB</strong>&nbsp;: si tu ne sais pas pourquoi tu call, mieux vaut fold ou 3-bet.</li>
+            <li><strong>Pas assez de 3-bet</strong>&nbsp;: value vs fish loose, light vs regs weak pour prendre l’initiative.</li>
+          </ul>
+        </section>
+
+        <section id="partie3">
+          <h2>♦️ Partie 3&nbsp;: Construire des ranges solides &amp; exploitantes</h2>
+
+          <h3>1) Open raise par position</h3>
+          <ul>
+            <li><strong>UTG</strong>&nbsp;: 66+, AJo+, KQo, A5s+, KJs+</li>
+            <li><strong>MP</strong>&nbsp;: + ATo, KJo, QJs, T9s+</li>
+            <li><strong>CO</strong>&nbsp;: + SCs plus bas, Axs, broadways offsuit</li>
+            <li><strong>BTN</strong>&nbsp;: ~40–45&nbsp;%</li>
+          </ul>
+          <div class="callout tip">
+            <strong>Adaptation</strong>&nbsp;: resserre si les blindes 3-bet beaucoup, élargis si elles sont passives/fishs.
+          </div>
+
+          <h3>2) 3-bet&nbsp;: value &amp; bluff</h3>
+          <ul>
+            <li><strong>Value</strong>&nbsp;: QQ+, AK (vs tout le monde)</li>
+            <li><strong>Bluff</strong>&nbsp;: A5s–A2s, KTs, QTs, T9s vs open loose CO/BTN</li>
+          </ul>
+          <div class="callout">
+            <strong>Exploit</strong>&nbsp;: si vilain open trop et <em>fold</em> beaucoup au 3-bet, élargis très fort IP. Contre les regs qui 4-bet peu, augmente la fréquence de 3-bet light.
+          </div>
+
+          <h3>3) Squeeze &amp; iso-raise</h3>
+          <ul>
+            <li><strong>Squeeze</strong>&nbsp;: après open + call, privilégie mains fortes / blockers (Axs, KQs…)</li>
+            <li><strong>Iso-raise</strong>&nbsp;: punis les limps des fishs avec des mains dominantes (AJo+, KQo, broadways, SCs)</li>
+          </ul>
+
+          <h3>4) Fold &gt; Call hors de position</h3>
+          <p>Sans plan clair, évite les calls OOP. <strong>3-bet ou fold</strong> est souvent supérieur sur le long terme.</p>
+        </section>
+
+        <section id="partie4">
+          <h2>♦️ Partie 4&nbsp;: Adapter son préflop à la table</h2>
+          <ul>
+            <li><strong>Vs fish</strong>&nbsp;: open plus loose IP, iso-raise leurs limps, 3-bet plus light s’ils over-fold.</li>
+            <li><strong>Vs joueurs tight</strong>&nbsp;: élargis les steals (CO/BTN), 3-bet moins, flat plus des mains à potentiel.</li>
+            <li><strong>Vs joueurs aggro</strong>&nbsp;: <em>trap</em> des premiums (slowplay AK, QQ+), 4-bet light avec bons blockers.</li>
+          </ul>
+          <div class="callout tip">
+            <strong>HUD à l’appui</strong>&nbsp;: surveille <code>VPIP</code>, <code>PFR</code>, <code>Fold to 3-bet</code> pour affiner tes décisions en temps réel.
+          </div>
+        </section>
+
+        <section id="conclusion">
+          <h2>♦️ Conclusion&nbsp;: le préflop, c’est 80&nbsp;% du winrate</h2>
+          <p>Des décisions préflop solides réduisent les spots complexes, gardent l’initiative et posent les bases d’un poker propre, discipliné et reproductible.</p>
+          <div class="hr"></div>
+          <h3>✅ Exercice de la semaine</h3>
+          <ul class="checklist">
+            <li>Sur 3 sessions, <strong>passe en revue toutes tes décisions préflop</strong> avec ton tracker.</li>
+            <li>Pour chaque main&nbsp;: «&nbsp;Pouvais-je mieux jouer ce spot&nbsp;? Quelle option alternative&nbsp;?&nbsp;»</li>
+            <li>Note le <strong>profil de vilain</strong> (fish, tight, aggro) et <strong>le contexte</strong> (positions, stacks, sizings).</li>
+          </ul>
+          <div class="cta-line">
+            <a class="btn" href="#intro">Revenir en haut</a>
+            <a class="btn ghost" href="https://www.youtube.com/@CLML-POKER?sub_confirmation=1" target="_blank" rel="noopener">📺 Voir nos vidéos</a>
+          </div>
+        </section>
+
+        <p class="footer-note">Envie d’aller plus loin&nbsp;? Coaching personnalisé (leak finder, packs de leçons) et replays privés disponibles.</p>
+      </article>
+
+      <aside class="sidebar" aria-label="Ressources">
+        <div class="toc">
+          <h2>Raccourcis utiles</h2>
+          <ul>
+            <li><a href="#partie1">Fondamentaux</a></li>
+            <li><a href="#partie2">Erreurs fréquentes</a></li>
+            <li><a href="#partie3">Ranges &amp; 3-bet</a></li>
+            <li><a href="#partie4">Adaptations</a></li>
+            <li><a href="#conclusion">Exercice</a></li>
+          </ul>
+        </div>
+        <div class="toc">
+          <h2>Tags</h2>
+          <div>
+            <span class="tag">#Préflop</span>
+            <span class="tag">#MicroLimites</span>
+            <span class="tag">#CashGame</span>
+            <span class="tag">#Ranges</span>
+            <span class="tag">#3bet</span>
+          </div>
+        </div>
+        <div class="toc">
+          <h2>Coaching & contact</h2>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1-GfYYyt7OCuLe9xTvHg2sOdllg7XIanb/view?usp=sharing" target="_blank" rel="noopener">Voir les prestations</a></li>
+            <li><a href="https://calendly.com/poker-clml-productions/precoaching" target="_blank" rel="noopener">Réserver un entretien gratuit</a></li>
+            <li>Discord : <strong>superhero03_tv</strong></li>
+          </ul>
+        </div>
+        <div class="toc">
+          <h2>À retenir</h2>
+          <ul class="yes">
+            <li>Position = pouvoir</li>
+            <li>TAG &gt; Loose sans plan</li>
+            <li>ISO&nbsp;4x + 1BB/limper</li>
+            <li>3-bet value &amp; light ciblé</li>
+            <li>3-bet/Fold &gt; Call OOP</li>
+          </ul>
+          <ul class="no" style="margin-top:10px">
+            <li>Limp par défaut</li>
+            <li>Open loose en early</li>
+            <li>Calls passifs sans objectif</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="container" style="padding-top:0">
+      <div class="hr"></div>
+      <p style="color:var(--muted);font-size:.95rem">© CLML POKER — Apprendre, progresser et crush les micro limites.</p>
+    </footer>
+  </main>
+
+  <!-- Micro interaction de la pastille ▶ (visuel) -->
+  <script>
+    const dot = document.querySelector('.round');
+    if(dot){
+      dot.addEventListener('click', () => {
+        dot.textContent = dot.textContent.trim() === '▶' ? '⏸' : '▶';
+      });
+    }
+  </script>
+</body>
+</html>
